@@ -1,1 +1,494 @@
 # sh1nob1888.github.i
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories Site</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d5a2d 50%, #1a1a1a 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px 15px 0 0;
+            padding: 20px 20px 0 20px;
+            margin-bottom: 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(34, 139, 34, 0.3);
+            border-bottom: none;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a1a1a;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #228B22, #1a1a1a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0;
+            border-bottom: 3px solid #e1e8ed;
+            margin-bottom: -1px;
+        }
+
+        .nav-btn {
+            background: transparent;
+            color: #666;
+            border: none;
+            border-bottom: 3px solid transparent;
+            padding: 15px 24px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: -3px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(34, 139, 34, 0.1);
+            color: #228B22;
+        }
+
+        .nav-btn.active {
+            background: white;
+            color: #228B22;
+            border-bottom: 3px solid #228B22;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 0 0 15px 15px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(34, 139, 34, 0.3);
+            border-top: none;
+            min-height: 500px;
+        }
+
+        .category {
+            display: none;
+        }
+
+        .category.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .category h2 {
+            color: #1a1a1a;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #228B22;
+            display: inline-block;
+        }
+
+        .category-description {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .link-card {
+            background: white;
+            border-radius: 12px;
+            padding: 0;
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(34, 139, 34, 0.2);
+            border-color: #228B22;
+        }
+
+        .link-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: #228B22;
+            border-bottom: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .link-card:hover .link-image {
+            background: linear-gradient(135deg, #228B22, #2d5a2d);
+            color: white;
+            border-bottom-color: #228B22;
+        }
+
+        .link-content {
+            padding: 20px;
+        }
+
+        .link-content h3 {
+            color: #1a1a1a;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .link-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .link-url {
+            color: #228B22;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9em;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .link-url:hover {
+            color: #1a1a1a;
+        }
+
+        .link-url::after {
+            content: "→";
+            transition: transform 0.3s ease;
+        }
+
+        .link-card:hover .link-url::after {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .nav-btn {
+                font-size: 14px;
+                padding: 12px 18px;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .link-image {
+                height: 150px;
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Categories Hub</h1>
+            <p class="subtitle">Explore our curated collection of links and resources</p>
+            <nav>
+                <button class="nav-btn active" onclick="showCategory('home')">Home</button>
+                <button class="nav-btn" onclick="showCategory('technology')">Technology</button>
+                <button class="nav-btn" onclick="showCategory('lifestyle')">Lifestyle</button>
+                <button class="nav-btn" onclick="showCategory('business')">Business</button>
+                <button class="nav-btn" onclick="showCategory('entertainment')">Entertainment</button>
+            </nav>
+        </header>
+
+        <main class="content">
+            <div id="home" class="category active">
+                <h2>Welcome Home</h2>
+                <p class="category-description">Welcome to our curated collection of links and resources! Navigate through our different categories to discover valuable websites, tools, and content across Technology, Lifestyle, Business, and Entertainment. Each link comes with a description and direct access to help you find exactly what you're looking for.</p>
+                
+                <div class="links-grid">
+                    <div class="link-card" onclick="openLink('#')">
+                        <div class="link-image">🏠</div>
+                        <div class="link-content">
+                            <h3>Getting Started Guide</h3>
+                            <p>Learn how to navigate through our categories and make the most of our curated links collection.</p>
+                            <a href="#" class="link-url">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="link-card" onclick="openLink('#')">
+                        <div class="link-image">📚</div>
+                        <div class="link-content">
+                            <h3>Resource Library</h3>
+                            <p>Access our comprehensive library of educational materials and helpful resources.</p>
+                            <a href="#" class="link-url">Browse Library</a>
+                        </div>
+                    </div>
+                    <div class="link-card" onclick="openLink('#')">
+                        <div class="link-image">💡</div>
+                        <div class="link-content">
+                            <h3>Featured Content</h3>
+                            <p>Discover our hand-picked selection of the most valuable and interesting content.</p>
+                            <a href="#" class="link-url">View Featured</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="technology" class="category">
+                <h2>Technology</h2>
+                <p class="category-description">Discover the latest in technology with our curated selection of development tools, AI resources, and tech news sources.</p>
+                
+                <div class="links-grid">
+                    <div class="link-card" onclick="openLink('https://developer.mozilla.org')">
+                        <div class="link-image">🌐</div>
+                        <div class="link-content">
+                            <h3>MDN Web Docs</h3>
+                            <p>Comprehensive web development documentation and tutorials for HTML, CSS, JavaScript, and web APIs.</p>
+                            <a href="https://developer.mozilla.org" class="link-url">developer.mozilla.org</a>
+                        </div>
+                    </div>
+                    <div class="link-card" onclick="openLink('https://github.com')">
+                        <div class="link-image">⚙️</div>
+                        <div class="link-content">
+                            <h3>GitHub</h3>
+                            <p>The world's leading software development platform for version control and collaboration.</p>
+                            <a href="https://github.com" class="link-url">github.com</a>
+                        </div>
+                    </div>
+                    <div class="link-card" onclick="openLink('https://stackoverflow.com')">
+                        <div class="link-image">🤖</div>
+                        <div class="link-content">
+                            <h3>Stack Overflow</h3>
+                            <p>The largest online community for programmers to learn, share knowledge, and build careers.</p>
+                            <a href="https://stackoverflow.com" class="link-url">stackoverflow.com</a>
+                        </div>
+                    </div>
+                    <div class="link-card" onclick="openLink('https://techcrunch.com')">
+                        <div class="link-image">📱</div>
+                        <div class="link-content">
+                            <h3>TechCrunch</h3>
+                            <p>Leading technology media property dedicated to obsessively profiling startups and technology news.</p>
+                            <a href="https://techcrunch.com" class="link-url">techcrunch.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="lifestyle" class="category">
+                <h2>Lifestyle</h2>
+                <p class="category-description">Enhance your daily life with resources for health, wellness, travel, and personal development.</p>
+                
+                <div class="links-grid">
+                    <div class="link-card" onclick="openLink('https://www.healthline.com')">
+                        <div class="link-image">🏃‍♂️</div>
+                        <div class="link-content">
+                            <h3>Healthline</h3>
+                            <p>Trusted health information and medical guidance for better health decisions.</p>
+                            <a href="https://www.healthline.com" class="link-url">healthline.com</a>
+                        </div>
+                    </div>
+                    <div class="link-card" onclick="openLink('https://www.lonelyplanet.com')">
+                        <div class="link-image">✈️</div>
+                        <div class="link-content">
+                            <h3>Lonely Planet</h3>
+                            <p>The world's leading travel media company, providing expert travel advice and inspiration.</p>
+                            <a href="https://www.lonelyplanet.com" class="link-url">lonelyplanet.com</a>
+                        </div>
+                    </div>
+                    <div class="link-card" onclick="openLink('https://www.mindful.org')">
+                        <div class="link-image">🧘‍♀️</div>
+                        <div class="link-content">
+                            <h3>Mindful</h3>
+                            <p>Resources and guidance for mindfulness practices and mental wellness.</p>
+                            <a href="https://www.mindful.org" class="link-url">mindful.org</a>
+                        </div>
+                    </div>
+                    <div class="link-card" onclick="openLink('https://www.architecturaldigest.com')">
+                        <div class="link-image">🏠</div>
+                        <div class="link-content">
+                            <h3>Architectural Digest</h3>
+                            <p>International design authority featuring the work of top architects and designers.</p>
+                            <a href="https://www.architecturaldigest.com" class="link-url">architecturaldigest.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="business" class="category">
+                <h2>Business</h2>
+                <p class="category-description">Stay ahead in business with insights on entrepreneurship, marketing, finance, and leadership strategies.</p>
+                
+                <div class="links-grid">
+                    <div class="link-card" onclick="openLink('https://www.entrepreneur.com')">
+                        <div class="link-image">🚀</div>
+                        <div class="link-content">
+                            <h3>Entrepreneur</h3>
+                            <p>Startup advice, business news, and entrepreneurship resources for growing businesses.</p>
+                            <a href="https://www.entrepreneur.com" class="link-url">entrepreneur.com</a>
+                        </div>
+                    </div>
+                    <div class="link-card" onclick="openLink('https://blog.hubspot.com')">
+                        <div class="link-image">📈</div>
+                        <div class="link-content">
+                            <h3>HubSpot Blog</h3>
+                            <p>Marketing, sales, and customer service insights to help businesses grow better.</p>
+                            <a href="https://blog.hubspot.com" class="link-url">blog.hubspot.com</a>
+                        </div>
+                    </div>
+                    <div class="link-card" onclick="openLink('https://www.investopedia.com')">
+                        <div class="link-image">💰</div>
+                        <div class="link-content">
+                            <h3>Investopedia</h3>
+                            <p>Comprehensive financial education and investment guidance for all experience levels.</p>
+                            <a href="https://www.investopedia.com" class="link-url">investopedia.com</a>
+                        </div>
+                    </div>
+                    <div class="link-card" onclick="openLink('https://hbr.org')">
+                        <div class="link-image">👔</div>
+                        <div class="link-content">
+                            <h3>Harvard Business Review</h3>
+                            <p>Management insights and leadership strategies from world-class business minds.</p>
+                            <a href="https://hbr.org" class="link-url">hbr.org</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="entertainment" class="category">
+                <h2>Entertainment</h2>
+                <p class="category-description">Discover the best in movies, music, games, and pop culture with our entertainment resources.</p>
+                
+                <div class="links-grid">
+                    <div class="link-card" onclick="openLink('https://www.imdb.com')">
+                        <div class="link-image">🎬</div>
+                        <div class="link-content">
+                            <h3>IMDb</h3>
+                            <p>The world's most popular and authoritative source for movie, TV, and celebrity content.</p>
+                            <a href="https://www.imdb.com" class="link-url">imdb.com</a>
+                        </div>
+                    </div>
+                    <div class="link-card" onclick="openLink('https://www.gamespot.com')">
+                        <div class="link-image">🎮</div>
+                        <div class="link-content">
+                            <h3>GameSpot</h3>
+                            <p>Video game news, reviews, previews, and gaming culture coverage.</p>
+                            <a href="https://www.gamespot.com" class="link-url">gamespot.com</a>
+                        </div>
+                    </div>
+                    <div class="link-card" onclick="openLink('https://pitchfork.com')">
+                        <div class="link-image">🎵</div>
+                        <div class="link-content">
+                            <h3>Pitchfork</h3>
+                            <p>Music reviews, news, and cultural commentary from independent music experts.</p>
+                            <a href="https://pitchfork.com" class="link-url">pitchfork.com</a>
+                        </div>
+                    </div>
+                    <div class="link-card" onclick="openLink('https://www.goodreads.com')">
+                        <div class="link-image">📚</div>
+                        <div class="link-content">
+                            <h3>Goodreads</h3>
+                            <p>Discover and share books you love with the world's largest community of readers.</p>
+                            <a href="https://www.goodreads.com" class="link-url">goodreads.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function showCategory(categoryName) {
+            // Hide all categories
+            const categories = document.querySelectorAll('.category');
+            categories.forEach(category => {
+                category.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected category
+            document.getElementById(categoryName).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        function openLink(url) {
+            if (url !== '#') {
+                window.open(url, '_blank');
+            }
+        }
+
+        // Add smooth scrolling for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
