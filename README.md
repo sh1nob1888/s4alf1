@@ -216,10 +216,10 @@
             <p class="subtitle">Explore our curated collection of links and resources</p>
             <nav>
                 <button class="nav-btn active" onclick="showCategory('home')">Home</button>
-                <button class="nav-btn" onclick="showCategory('technology')">Technology</button>
-                <button class="nav-btn" onclick="showCategory('lifestyle')">Lifestyle</button>
-                <button class="nav-btn" onclick="showCategory('business')">Business</button>
-                <button class="nav-btn" onclick="showCategory('entertainment')">Entertainment</button>
+                <button class="nav-btn" onclick="showCategory('Marriage')">Technology</button>
+                <button class="nav-btn" onclick="showCategory('The Three Fundamental Principles')">Lifestyle</button>
+                <button class="nav-btn" onclick="showCategory('Kitab At-Tawheed')">Business</button>
+                <button class="nav-btn" onclick="showCategory('Manhaj')">Entertainment</button>
             </nav>
         </header>
         <main class="content">
