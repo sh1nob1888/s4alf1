@@ -11,7 +11,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
@@ -19,13 +18,11 @@
             background: linear-gradient(135deg, #1a1a1a 0%, #2d5a2d 50%, #1a1a1a 100%);
             min-height: 100vh;
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -36,7 +33,6 @@
             border: 1px solid rgba(34, 139, 34, 0.3);
             border-bottom: none;
         }
-
         h1 {
             text-align: center;
             color: #1a1a1a;
@@ -48,14 +44,12 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .subtitle {
             text-align: center;
             color: #666;
             font-size: 1.1em;
             margin-bottom: 20px;
         }
-
         nav {
             display: flex;
             justify-content: center;
@@ -64,7 +58,6 @@
             border-bottom: 3px solid #e1e8ed;
             margin-bottom: -1px;
         }
-
         .nav-btn {
             background: transparent;
             color: #666;
@@ -79,19 +72,16 @@
             border-radius: 8px 8px 0 0;
             margin-bottom: -3px;
         }
-
         .nav-btn:hover {
             background: rgba(34, 139, 34, 0.1);
             color: #228B22;
         }
-
         .nav-btn.active {
             background: white;
             color: #228B22;
             border-bottom: 3px solid #228B22;
             box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
         }
-
         .content {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -102,21 +92,17 @@
             border-top: none;
             min-height: 500px;
         }
-
         .category {
             display: none;
         }
-
         .category.active {
             display: block;
             animation: fadeIn 0.5s ease-in-out;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         .category h2 {
             color: #1a1a1a;
             font-size: 2em;
@@ -125,21 +111,18 @@
             border-bottom: 3px solid #228B22;
             display: inline-block;
         }
-
         .category-description {
             color: #666;
             font-size: 1.1em;
             margin-bottom: 30px;
             line-height: 1.6;
         }
-
         .links-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 25px;
             margin-top: 30px;
         }
-
         .link-card {
             background: white;
             border-radius: 12px;
@@ -150,13 +133,11 @@
             overflow: hidden;
             cursor: pointer;
         }
-
         .link-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(34, 139, 34, 0.2);
             border-color: #228B22;
         }
-
         .link-image {
             width: 100%;
             height: 200px;
@@ -169,30 +150,25 @@
             border-bottom: 2px solid #f0f0f0;
             transition: all 0.3s ease;
         }
-
         .link-card:hover .link-image {
             background: linear-gradient(135deg, #228B22, #2d5a2d);
             color: white;
             border-bottom-color: #228B22;
         }
-
         .link-content {
             padding: 20px;
         }
-
         .link-content h3 {
             color: #1a1a1a;
             font-size: 1.4em;
             margin-bottom: 10px;
             font-weight: 700;
         }
-
         .link-content p {
             color: #666;
             line-height: 1.6;
             margin-bottom: 15px;
         }
-
         .link-url {
             color: #228B22;
             font-weight: 600;
@@ -202,38 +178,30 @@
             align-items: center;
             gap: 5px;
         }
-
         .link-url:hover {
             color: #1a1a1a;
         }
-
         .link-url::after {
             content: "→";
             transition: transform 0.3s ease;
         }
-
         .link-card:hover .link-url::after {
             transform: translateX(5px);
         }
-
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
             }
-
             h1 {
                 font-size: 2em;
             }
-
             .nav-btn {
                 font-size: 14px;
                 padding: 12px 18px;
             }
-
             .links-grid {
                 grid-template-columns: 1fr;
             }
-
             .link-image {
                 height: 150px;
                 font-size: 2em;
@@ -254,12 +222,10 @@
                 <button class="nav-btn" onclick="showCategory('entertainment')">Entertainment</button>
             </nav>
         </header>
-
         <main class="content">
             <div id="home" class="category active">
                 <h2>Welcome Home</h2>
-                <p class="category-description">Welcome to our curated collection of links and resources! Navigate through our different categories to discover valuable websites, tools, and content across Technology, Lifestyle, Business, and Entertainment. Each link comes with a description and direct access to help you find exactly what you're looking for.</p>
-                
+                <p class="category-description">Welcome to our curated collection of links and resources! Navigate through our different categories to discover valuable websites, tools, and content across Technology, Lifestyle, Business, and Entertainment. Each link comes with a description and direct access to help you find exactly what you're looking for.</p> 
                 <div class="links-grid">
                     <div class="link-card" onclick="openLink('#')">
                         <div class="link-image">🏠</div>
@@ -287,11 +253,9 @@
                     </div>
                 </div>
             </div>
-
             <div id="technology" class="category">
                 <h2>Technology</h2>
-                <p class="category-description">Discover the latest in technology with our curated selection of development tools, AI resources, and tech news sources.</p>
-                
+                <p class="category-description">Discover the latest in technology with our curated selection of development tools, AI resources, and tech news sources.</p>  
                 <div class="links-grid">
                     <div class="link-card" onclick="openLink('https://developer.mozilla.org')">
                         <div class="link-image">🌐</div>
@@ -327,11 +291,9 @@
                     </div>
                 </div>
             </div>
-
             <div id="lifestyle" class="category">
                 <h2>Lifestyle</h2>
-                <p class="category-description">Enhance your daily life with resources for health, wellness, travel, and personal development.</p>
-                
+                <p class="category-description">Enhance your daily life with resources for health, wellness, travel, and personal development.</p>                
                 <div class="links-grid">
                     <div class="link-card" onclick="openLink('https://www.healthline.com')">
                         <div class="link-image">🏃‍♂️</div>
@@ -367,11 +329,9 @@
                     </div>
                 </div>
             </div>
-
             <div id="business" class="category">
                 <h2>Business</h2>
-                <p class="category-description">Stay ahead in business with insights on entrepreneurship, marketing, finance, and leadership strategies.</p>
-                
+                <p class="category-description">Stay ahead in business with insights on entrepreneurship, marketing, finance, and leadership strategies.</p>      
                 <div class="links-grid">
                     <div class="link-card" onclick="openLink('https://www.entrepreneur.com')">
                         <div class="link-image">🚀</div>
@@ -407,11 +367,9 @@
                     </div>
                 </div>
             </div>
-
             <div id="entertainment" class="category">
                 <h2>Entertainment</h2>
-                <p class="category-description">Discover the best in movies, music, games, and pop culture with our entertainment resources.</p>
-                
+                <p class="category-description">Discover the best in movies, music, games, and pop culture with our entertainment resources.</p>           
                 <div class="links-grid">
                     <div class="link-card" onclick="openLink('https://www.imdb.com')">
                         <div class="link-image">🎬</div>
@@ -449,7 +407,6 @@
             </div>
         </main>
     </div>
-
     <script>
         function showCategory(categoryName) {
             // Hide all categories
@@ -457,26 +414,21 @@
             categories.forEach(category => {
                 category.classList.remove('active');
             });
-
             // Remove active class from all buttons
             const buttons = document.querySelectorAll('.nav-btn');
             buttons.forEach(button => {
                 button.classList.remove('active');
             });
-
             // Show selected category
             document.getElementById(categoryName).classList.add('active');
-
             // Add active class to clicked button
             event.target.classList.add('active');
         }
-
         function openLink(url) {
             if (url !== '#') {
                 window.open(url, '_blank');
             }
         }
-
         // Add smooth scrolling for better UX
         document.addEventListener('DOMContentLoaded', function() {
             const buttons = document.querySelectorAll('.nav-btn');
