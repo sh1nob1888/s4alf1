@@ -253,7 +253,7 @@
                     </div>
                 </div>
             </div>
-            <div id="technology" class="category">
+            <div id="Marriage" class="category">
                 <h2>Technology</h2>
                 <p class="category-description">Discover the latest in technology with our curated selection of development tools, AI resources, and tech news sources.</p>  
                 <div class="links-grid">
